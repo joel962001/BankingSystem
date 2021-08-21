@@ -28,7 +28,7 @@ SECRET_KEY = '21+%ss#*!&rsc3(92!ejda_k*=6c*mb!57gb0t@3m*q)$av1d2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','tsfjoel.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1','tsfjoel.herokuapp.com']
 
 
 # Application definition
@@ -87,7 +87,8 @@ DATABASES = {
         'HOST': 'localhost'
     }
 }
-db_from_env = dj_database_url.config()
+
+db_from_env = dj_database_url.config('mysql://root:sql962001@localhost:3306/record')
 DATABASES['default'].update(db_from_env)
 
 
@@ -127,8 +128,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
